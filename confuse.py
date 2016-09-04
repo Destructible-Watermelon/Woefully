@@ -26,8 +26,8 @@ def move():
         cp[1]+=1
         if cp[1]>=len(program):cp[1]-len(program)
 
-def bool():
-    push(int(stack_A.pop()))
+def notz():
+    push(int(stack_A.pop()!=0))
 
 def inpt():
     push(ord(input()) if i_o_ascii else int(input()))
@@ -38,7 +38,7 @@ def otpt():
 def swap():
     global i_o_ascii
     i_o_ascii=not i_o_ascii
-ddr_funcs=(move,bool,inpt,otpt,swap)
+ddr_funcs=(move,notz,inpt,otpt,swap)
 
 i_o_ascii=False
 stack_A=[0]
