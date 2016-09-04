@@ -33,7 +33,7 @@ def inpt():
     push(ord(input()) if i_o_ascii else int(input()))
 
 def otpt():
-    print(chr(stack_A.pop())if i_o_ascii else stack_A.pop())
+    print(end=chr(stack_A.pop())if i_o_ascii else stack_A.pop())
 
 def swap():
     global i_o_ascii
