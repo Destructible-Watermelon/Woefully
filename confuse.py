@@ -1,5 +1,4 @@
 import re
-import time
 #################
 #DOWN functions!#
 #################
@@ -63,9 +62,9 @@ while not finished:
     instruction_dir=-1
     while True:
         instruction_counter=1
-        if len(program)-1>ip[1] and ' ' in program[ip[1]+1][ip[0]-1:ip[0]+2]:
+        if len(program)-1 > ip[1] and ' ' in program[ip[1]+1][ip[0]-1:ip[0]+2]:
             instruction_dir=-1
-        while len(program)-1>ip[1] and ' ' in program[ip[1]+1][ip[0]-1:ip[0]+2]:
+        while len(program)-1 > ip[1] and ' ' in program[ip[1]+1][ip[0]-1:ip[0]+2]:
 
             if instruction_dir==-1:
                 instruction_dir=program[ip[1]+1][ip[0]-1:ip[0]+2].find(' ')
@@ -80,5 +79,5 @@ while not finished:
         if instruction_dir==0:push(instruction_counter-3)
         elif instruction_dir==1:down_funcs[(instruction_counter-3)%4]()
         elif instruction_dir==2:ddr_funcs[(instruction_counter-3)%5]()
-        if not len(program)-1>ip[1] or not ' ' in program[ip[1]+1][ip[0]-1:ip[0]+2]:
+        if not len(program)-1 > ip[1] or not ' ' in program[ip[1]+1][ip[0]-1:ip[0]+2]:
             break
