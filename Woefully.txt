@@ -1,0 +1,68 @@
+Before we talk what's in a program, let's talk about what's not. There are no characters but newlines, pipes, and spaces. There are no spaces next to newlines, or newlines next to spaces etc. Programs that have these will produce output "confuse :("
+
+On the program, there are two pointers. Char pointer, and instruction pointer. The CP (char pointer) starts at the first char, and the IP starts at the CP. The ip moves across the lines until it finds a space, if there is no space on the current line, it will try the next line, etc. the top line is considered next to the bottom line for these purposes. Note that a program with no spaces produces the output "confuse :(". Once it finds a space, it will try to navigate down it as a path. navigation works like this: it checks if there is a space in the three adjacent squares below it:
+
+     #
+    /|\
+if there is, it will go to the first one there. if there is not, it halts.
+it will keep going in this direction, until there are no spaces in that direction anymore:
+
+(lines denote the spaces it checks)
+             #
+            /|\
+           /
+          /
+(line end)|\
+          |
+         /|\
+(no more spaces near this space)
+
+When it finds the end of the line in that direction, it executes a command based on the value. if the value is 2, it is a nop. if it greater than 2, execute a command (see below)
+
+When the entire path ends, as in the example above, after the line ends, the ip is set to the cps position
+
+Woefully uses stacks for its data
+
+There are two stacks, A and B
+Stacks start initialised with zero on top
+A denotes both the stack, and a value on that stack, same for B.
+
+Types of commands: down, diagonally down left, diagonally down right
+############################
+#DDL (diagonally down left)#
+############################
+path length is taken, minus three, pushed to stack A
+
+
+######
+#DOWN#
+######
+river length is taken, minus three, mod 4,
+then taken from this table
++-+----+----------------------+
+|0|AtoB|pop A, push A to B    |
++-+----+----------------------+
+|1|diff|pop stacks, A.push A-B|
++-+----+----------------------+
+|2|mult|pop stacks, A.push A*B|
++-+----+----------------------+
+|3|dupe|peek A, push A to B   |
++-+----+----------------------+
+
+#####
+#DDR#
+#####
+take the length of a DDR river, subtract three, mod 5, then take from this table
+moving works with negative integers; it moves back. Moving wraps at the line, and moves down a line, like regular text. it also wraps at the end, to the start.
+
++-+----+----------------------+
+|0|move|move pointer stack.pop|
++-+----+----------------------+
+|1|bool|push int(0!=A.pop)    |
++-+----+----------------------+
+|2|inpt|push input            |
++-+----+----------------------+
+|3|otpt|pop a from A, print   |
++-+----+----------------------+
+|4|swap|swap decimal/ascii i/o|
++-+----+----------------------+
