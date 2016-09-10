@@ -21,8 +21,8 @@ down_funcs=(AtoB,diff,mult,dupe)
 def move():
     global cp
     cp[0]+=stack_A.pop()
-    while cp[0]>=len(program[cp[0]]):
-        cp[0]=cp[0]-len(program[cp[0]])
+    while cp[0]>=len(program[cp[1]]):
+        cp[0]=cp[0]-len(program[cp[1]])
         cp[1]+=1
         if cp[1]>=len(program):cp[1]-len(program)
 
