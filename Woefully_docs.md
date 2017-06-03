@@ -1,4 +1,4 @@
-#Woefully docs!
+# Woefully docs!
 
 Before we talk what's in a program, let's talk about what's not. There are no characters but newlines, pipes, and spaces. There are no spaces next to newlines, or newlines next to spaces etc. Programs that have these will produce output "confuse :("
 
@@ -34,18 +34,18 @@ Stack A is the main stack, and stack B is very much a secondary place to store d
 
 
 -----
-##Types of commands: down, diagonally down left, diagonally down right
+## Types of commands: down, diagonally down left, diagonally down right
 
 **All two length commands are nops**
 
 **Commands subtract three because the minimum length of a command is three because length two is a nop**
 
-###DDL (diagonally down left)
+### DDL (diagonally down left)
 path length is taken, minus three, pushed to stack A
 
 
 
-###DOWN
+### DOWN
 river length is taken, minus three, mod 4,
 then taken from this table
 
@@ -57,7 +57,7 @@ then taken from this table
 |3|dupe|peek a from A, push a to B   |
 
 
-###DDR
+### DDR
 take the length of a DDR river, subtract three, mod 5, then take from this table
 
 moving works with negative integers; it moves back. Moving wraps at the line, and moves down a line, like regular text. it also wraps at the end, to the start.
